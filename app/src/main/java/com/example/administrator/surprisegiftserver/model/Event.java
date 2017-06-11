@@ -295,6 +295,8 @@ public class Event   implements Parcelable  {
 
     public String toString()
     {
-        return name+" "+isClient+" "+iType+" "+dCreate+" "+iNotificationBeforeMinute;
+        return id+" "+name+" "+idUser+" "+idClient+" "+date+" "+month+" "+year+" "+hour+" "+minute+" "
+                +isRepeat+" "+ iType+" "+iStatus+" "+dCreate+" "+isClient+" "+isNotification
+                +" "+message+" "+image+" "+hour+" "+minute;
     }
 }

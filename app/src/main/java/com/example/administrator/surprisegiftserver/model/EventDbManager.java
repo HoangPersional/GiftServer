@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.administrator.surprisegiftserver.config.Config;
 
@@ -88,8 +89,11 @@ public class EventDbManager {
             eventDbManager = new EventDbManager();
         return eventDbManager;
     }
-
-    public static void insertEvent(Event e) {
+    public void clear()
+    {
+        mSqLiteDatabase.delete(EVENT_TABLE_NAME,null,null);
+    }
+    public void insertEvent(Event e) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Column.ID, e.getId());
         contentValues.put(Column.NAME, e.getName());
@@ -105,31 +109,34 @@ public class EventDbManager {
         contentValues.put(Column.STATUS, e.getiStatus());
         contentValues.put(Column.D_CREATE, e.getdCreate());
         contentValues.put(Column.DESCRIPTION, e.getDescription());
-        contentValues.put(Column.ID_CLIENT, e.isClient());
+        contentValues.put(Column.IS_CLIENT, e.isClient());
         contentValues.put(Column.IS_NOTIFICATION, e.isNotification());
         contentValues.put(Column.NOTIFICATION_BEFORE, e.getiNotificationBeforeMinute());
         contentValues.put(Column.MESSAGE, e.getMessage());
         contentValues.put(Column.IMAGE, e.getImage());
         contentValues.put(Column.MUSIC, e.getMp3());
         contentValues.put(Column.VIDEO, e.getVideo());
-        mSqLiteDatabase.insert(EVENT_TABLE_NAME, null, contentValues);
+        if(mSqLiteDatabase.insert(EVENT_TABLE_NAME, null, contentValues)!=-1)
+        {
+            Log.v("HH_INSERT",e.toString());
+        }
     }
 
-    public static void insertEvents(ArrayList<Event> list) {
+    public void insertEvents(ArrayList<Event> list) {
         for (Event e : list
                 ) {
             insertEvent(e);
         }
     }
 
-    public static Event getEvent(int id_event) {
+    protected Event getEvent(int id_event) {
         Event event = new Event();
         Cursor cursor = mSqLiteDatabase.query(EVENT_TABLE_NAME, columns, Column.ID_CLIENT + "=?", new String[]{String.valueOf(id_event)}, null, null, null);
         event = CursorToEvent(cursor);
         return event;
     }
 
-    public static ArrayList<Event> getEvents() {
+    public ArrayList<Event> getEvents() {
         ArrayList<Event> events = new ArrayList<>();
         Cursor cursor = mSqLiteDatabase.query(EVENT_TABLE_NAME, columns, null, null, null, null, null);
         cursor.moveToFirst();
@@ -141,7 +148,7 @@ public class EventDbManager {
         return events;
     }
 
-    public static Event CursorToEvent(Cursor cursor) {
+    private static Event CursorToEvent(Cursor cursor) {
         Event event = new Event();
         event.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Column.ID))));
         event.setName(cursor.getString(cursor.getColumnIndex(Column.NAME)));
@@ -153,18 +160,18 @@ public class EventDbManager {
         event.setHour(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Column.HOUR))));
         event.setMinute(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Column.MINUTE))));
         event.setRepeat(cursor.getString(cursor.getColumnIndex(Column.REPEAT)).equals("1") ? true : false);
+
         event.setiType(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Column.TYPE))));
         event.setiStatus(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Column.STATUS))));
-
         event.setdCreate(cursor.getString(cursor.getColumnIndex(Column.D_CREATE)));
         event.setDescription(cursor.getString(cursor.getColumnIndex(Column.DESCRIPTION)));
         event.setClient(cursor.getString(cursor.getColumnIndex(Column.IS_CLIENT)).equals("1") ? true : false);
         event.setNotification(cursor.getString(cursor.getColumnIndex(Column.IS_NOTIFICATION)).equals("1") ? true : false);
         event.setiNotificationBeforeMinute(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Column.NOTIFICATION_BEFORE))));
-
         event.setMessage(cursor.getString(cursor.getColumnIndex(Column.MESSAGE)));
         event.setImage(cursor.getString(cursor.getColumnIndex(Column.IMAGE)));
         event.setMp3(cursor.getString(cursor.getColumnIndex(Column.MUSIC)));
+
         event.setVideo(cursor.getString(cursor.getColumnIndex(Column.VIDEO)));
         return event;
     }

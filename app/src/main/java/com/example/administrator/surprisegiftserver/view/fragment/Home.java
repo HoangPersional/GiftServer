@@ -21,9 +21,6 @@ import com.example.administrator.surprisegiftserver.model.Event;
 import com.example.administrator.surprisegiftserver.model.LoadEvents;
 import com.example.administrator.surprisegiftserver.model.User;
 import com.example.administrator.surprisegiftserver.presenter.EventListPresenter;
-import com.example.administrator.surprisegiftserver.support.ConnectServer;
-import com.example.administrator.surprisegiftserver.support.GridSpacingItemDecoration;
-import com.example.administrator.surprisegiftserver.support.RealmDB;
 import com.example.administrator.surprisegiftserver.view.LoadList;
 import com.example.administrator.surprisegiftserver.view.activity.AddEventActivity;
 import com.example.administrator.surprisegiftserver.view.activity.EventDetailActivity;
@@ -41,7 +38,6 @@ public class Home extends Fragment implements LoadList {
     private ArrayList<Event> events;
     private EventListPresenter eventListPresenter;
     private User user;
-    private RealmDB realmDB;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,7 +58,6 @@ public class Home extends Fragment implements LoadList {
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),LinearLayoutManager.VERTICAL));
         eventListPresenter = new EventListPresenter(this, new LoadEvents(getContext(), user.getId()));
         eventListPresenter.connect();
-        realmDB=RealmDB.getInstance(getContext());
     }
 
     @Override
@@ -77,17 +72,7 @@ public class Home extends Fragment implements LoadList {
             Log.v("HH", e.toString());
         }
         eventAdapter.setEvents(events);
-        for (Event e:events
-             ) {
-            realmDB.getRealm().beginTransaction();
-            realmDB.getRealm().copyToRealm(e);
-            realmDB.getRealm().commitTransaction();
-        }
-        ArrayList<Event> e=realmDB.getArrayList();
-        for (Event i:e
-             ) {
-            Log.v("REAL", e.toString());
-        }
+
     }
 
     @Override
