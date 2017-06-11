@@ -41,5 +41,8 @@ public class LoadEvents implements ConnectServer.ConnectComplete {
     public void setConnectComplete(ConnectServer.ConnectComplete connectComplete) {
         this.connectComplete = connectComplete;
     }
-
+    public Context getContext()
+    {
+        return  context;
+    }
 }
