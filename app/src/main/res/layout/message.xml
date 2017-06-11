@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_message"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/block_background"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:visibility="gone"
+   >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="@string/message"
+        android:textColor="@color/black_dark" />
+
+    <EditText
+        android:id="@+id/et_message"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_column="2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/input_back_ground"
+        android:gravity="top"
+        android:paddingLeft="5dp"
+        android:textColor="@color/black_paste" />
+
+    <TableLayout
+        android:id="@+id/tl_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/image"
+                android:textColor="@color/black_dark" />
+
+            <EditText
+                android:id="@+id/et_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="2"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="4"
+                android:background="@drawable/input_back_ground"
+                android:gravity="center"
+                android:textColor="@color/black_paste"
+                android:textSize="@dimen/link_size" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/music"
+                android:textColor="@color/black_dark" />
+
+            <EditText
+                android:id="@+id/et_music"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="2"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="4"
+                android:background="@drawable/input_back_ground"
+                android:gravity="center"
+                android:textColor="@color/black_paste"
+                android:textSize="@dimen/link_size" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/video"
+                android:textColor="@color/black_dark" />
+
+            <EditText
+                android:id="@+id/et_video"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_column="2"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="4"
+                android:background="@drawable/input_back_ground"
+                android:gravity="center"
+                android:textColor="@color/black_paste"
+                android:textSize="@dimen/link_size" />
+        </TableRow>
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/choose_client"
+            android:textColor="@color/black_dark" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/acs_choose_client"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:spinnerMode="dialog"
+            android:background="@drawable/bg"
+            android:layout_marginLeft="10dp" />
+    </RelativeLayout>
+</LinearLayout>

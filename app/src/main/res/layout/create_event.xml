@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+ <ScrollView
+     android:id="@+id/sv"
+     android:layout_width="match_parent"
+     android:layout_above="@+id/bt_create_event"
+     android:layout_height="match_parent">
+     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="@color/white"
+         android:orientation="vertical"
+         android:padding="10dp">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <TextView
+                 android:layout_weight="1"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/event_name"
+                 android:textColor="@color/black_dark" />
+
+             <EditText
+                 android:layout_weight="3"
+                 android:id="@+id/et_event_name"
+                 android:layout_width="100dp"
+                 android:layout_height="50dp"
+                 android:paddingLeft="5dp"
+                 android:textColor="@color/black_dark"
+                 android:background="@drawable/block_background" />
+
+         </LinearLayout>
+
+         <TextView
+             android:layout_marginTop="10dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/time"
+             android:textColor="@color/black_dark" />
+
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="1dip"
+             android:layout_marginTop="@dimen/two_dp"
+             android:background="@color/paste" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+             android:orientation="horizontal">
+
+             <TableLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:background="@drawable/block_background"
+                 android:padding="10dp">
+
+                 <TableRow>
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_weight="1"
+                         android:text="@string/date"
+                         android:textColor="@color/black_paste" />
+
+                     <EditText
+                         android:id="@+id/et_date"
+                         android:layout_width="70dp"
+                         android:layout_height="30dp"
+                         android:layout_weight="3"
+                         android:layout_marginLeft="5dp"
+                         android:inputType="number"
+                         android:background="@drawable/input_back_ground"
+                         android:gravity="center"
+                         android:textColor="@color/black_paste" />
+                 </TableRow>
+
+                 <TableRow android:paddingTop="5dp">
+
+                     <TextView
+                         android:layout_weight="1"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:text="@string/month"
+                         android:textColor="@color/black_paste" />
+
+                     <EditText
+                         android:layout_weight="3"
+                         android:id="@+id/et_month"
+                         android:layout_width="70dp"
+                         android:layout_height="30dp"
+                         android:layout_marginLeft="5dp"
+                         android:inputType="number"
+                         android:background="@drawable/input_back_ground"
+                         android:gravity="center"
+                         android:textColor="@color/black_paste" />
+                 </TableRow>
+
+                 <TableRow android:paddingTop="5dp">
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_weight="1"
+                         android:text="@string/year"
+                         android:textColor="@color/black_paste" />
+
+                     <EditText
+                         android:id="@+id/et_year"
+                         android:layout_width="70dp"
+                         android:layout_height="30dp"
+                         android:layout_weight="3"
+                         android:layout_marginLeft="5dp"
+                         android:background="@drawable/input_back_ground"
+                         android:gravity="center"
+                         android:inputType="number"
+                         android:textColor="@color/black_paste" />
+                 </TableRow>
+             </TableLayout>
+
+             <TableLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="10dp"
+                 android:layout_weight="1"
+                 android:background="@drawable/block_background"
+                 android:padding="10dp">
+
+                 <TableRow android:layout_width="match_parent"
+
+                     >
+
+                     <TextView
+                         android:layout_weight="1"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/hour"
+                         android:textColor="@color/black_paste" />
+
+                     <EditText
+                         android:layout_weight="3"
+                         android:id="@+id/et_hour"
+                         android:layout_width="match_parent"
+                         android:layout_height="30dp"
+                         android:layout_marginLeft="5dp"
+                         android:background="@drawable/input_back_ground"
+                         android:gravity="center"
+                         android:inputType="number"
+                         android:textColor="@color/black_paste" />
+                 </TableRow>
+
+                 <TableRow
+
+                     android:paddingTop="5dp">
+
+                     <TextView
+                         android:layout_weight="1"
+                         android:id="@+id/textView2"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/munite"
+                         android:textColor="@color/black_paste" />
+
+                     <EditText
+                         android:layout_weight="3"
+                         android:id="@+id/et_minute"
+                         android:layout_width="50dp"
+                         android:layout_height="30dp"
+                         android:layout_marginLeft="5dp"
+                         android:inputType="number"
+                         android:background="@drawable/input_back_ground"
+                         android:gravity="center"
+                         android:textColor="@color/black_paste" />
+                 </TableRow>
+             </TableLayout>
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+             android:gravity="center"
+             android:orientation="vertical">
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/repeat"
+                 android:textColor="@color/black_dark" />
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="1dip"
+                 android:layout_marginTop="@dimen/two_dp"
+                 android:background="@color/paste" />
+
+             <RadioGroup
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:paddingLeft="100dp"
+                 android:id="@+id/rg_time"
+                 android:theme="@style/radio_style">
+
+                 <RadioButton
+                     android:id="@+id/rb_month"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="@string/month"
+                     android:checked="true"
+                     android:textColor="@color/black_paste" />
+
+                 <RadioButton
+                     android:id="@+id/rb_year"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:text="@string/year"
+                     android:textColor="@color/black_paste" />
+             </RadioGroup>
+         </LinearLayout>
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/description"
+             android:textColor="@color/black_dark" />
+
+         <EditText
+             android:id="@+id/et_description"
+             android:layout_width="match_parent"
+             android:layout_height="70dp"
+             android:layout_marginTop="5dp"
+             android:background="@drawable/block_background"
+             android:gravity="top"
+             android:padding="5dp"
+             android:textColor="@color/black_dark" />
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+             android:text="@string/client"
+             android:textColor="@color/black_dark" />
+
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="1dip"
+             android:layout_marginTop="@dimen/two_dp"
+             android:background="@color/paste" />
+
+         <RadioGroup
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:paddingLeft="100dp"
+             android:id="@+id/rg_client"
+             android:theme="@style/radio_style">
+
+             <RadioButton
+                 android:id="@+id/rb_clients"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:text="@string/client"
+                 android:textColor="@color/black_paste" />
+
+             <RadioButton
+                 android:id="@+id/rb_no_clients"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:checked="true"
+                 android:text="@string/no_clients"
+                 android:textColor="@color/black_paste" />
+         </RadioGroup>
+         <include android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/message"
+             />
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/notification"
+                 android:layout_alignParentLeft="true"
+                 android:textColor="@color/black_dark" />
+             <android.support.v7.widget.SwitchCompat
+                 android:layout_width="wrap_content"
+                 android:checked="true"
+                 android:id="@+id/sc_notification"
+                 android:layout_alignParentRight="true"
+                 android:layout_height="wrap_content" />
+         </RelativeLayout>
+
+         <LinearLayout
+             android:visibility="gone"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:text="@string/notification_before"
+                 android:textColor="@color/black_dark" />
+
+             <EditText
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+
+                 android:layout_weight="1" />
+         </LinearLayout>
+     </LinearLayout>
+ </ScrollView>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bt_create_event"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_background"
+        android:text="@string/create_event" />
+    </RelativeLayout>

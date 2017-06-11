@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <com.example.administrator.surprisegiftserver.support.CustomView
+            android:id="@+id/cv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:myBackground="@color/more_option_text_color"
+            app:mySrc="@mipmap/gift" />
+        <TextView
+            android:id="@+id/tv_event_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/textDemo"
+            android:textColor="@color/black_dark"
+            android:textSize="@dimen/titleSize"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll1"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/from"
+                android:textColor="@color/black_dark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/user_name"
+                android:textColor="@color/black_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/to"
+                android:textColor="@color/black_dark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_to_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/user_name"
+                android:textColor="@color/black_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_will_send"
+                android:textColor="@color/black_dark" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/date_demo"
+                android:textColor="@color/black_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_will_send"
+                android:textColor="@color/black_dark"
+             />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/time_demo"
+                android:textColor="@color/black_dark" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/tl_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+
+        <TableRow
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/love_message"
+                android:textColor="@color/black_dark" />
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/textDemo"
+                android:textColor="@color/black_dark" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/image_attach"
+                android:textColor="@color/black_dark" />
+
+            <TextView
+                android:id="@+id/tv_image_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/textDemo"
+                android:textColor="@color/black_dark" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attach_music"
+                android:textColor="@color/black_dark" />
+
+            <TextView
+                android:id="@+id/tv_music_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/textDemo"
+                android:textColor="@color/black_dark" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attach_video"
+                android:textColor="@color/black_dark" />
+
+            <TextView
+                android:id="@+id/tv_video_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/textDemo"
+                android:textColor="@color/black_dark" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tl_message"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note"
+            android:textColor="@color/black_dark"
+            android:textSize="@dimen/note_size_big"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_note1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/note_item_pading_left"
+            android:text="@string/note"
+            android:textColor="@color/black_dark"
+            android:textSize="@dimen/note_item_size" />
+
+        <TextView
+            android:id="@+id/tv_note2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/note_item_pading_left"
+            android:textColor="@color/black_dark"
+            android:textSize="@dimen/note_item_size" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_test_connect_to_client"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_background"
+        android:text="@string/test_client" />
+</RelativeLayout>

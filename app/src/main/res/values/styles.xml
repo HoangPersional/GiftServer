@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/sing_in_button_background_color</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/editTextUserNameBorder</item>
+    </style>
+    <style name="cb_style" parent="Base.Theme.AppCompat">
+        <item name="colorAccent">@color/editTextUserNameBorder</item> <!-- for uncheck state -->
+        <item name="android:textColorSecondary">@color/editTextUserNameBorder</item> <!-- for check state -->
+    </style>
+    <style name="radio_style" parent="Base.Theme.AppCompat">
+        <item name="colorAccent">@color/editTextUserNameBorder</item> <!-- for uncheck state -->
+        <item name="android:textColorSecondary">@color/paste</item> <!-- for check state -->
+    </style>
+    <color name="checkboxColor">#000000</color>
+    <color name="uncheckboxColor">#0eb47a</color>
+</resources>
