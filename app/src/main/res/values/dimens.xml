@@ -13,4 +13,6 @@
     <dimen name="note_size_big">20sp</dimen>
     <dimen name="note_item_pading_left">20dp</dimen>
     <dimen name="note_item_size">13sp</dimen>
+    <dimen name="client_name_size">20sp</dimen>
+    <dimen name="client_name_size_big">50sp</dimen>
 </resources>

@@ -5,13 +5,14 @@ package com.example.administrator.surprisegiftserver.config;
  */
 
 public class Config {
-    public static String HOST="http://192.168.1.198/";
-    public static String IN="NotificationBirthday/Login.php";
+    public static String HOST="http://giftserver.000webhostapp.com/";
+    public static String IN="NotificationBirthday/LogIn.php";
     public static String UP="NotificationBirthday/SignUp.php";
     public static String EVENT="NotificationBirthday/Event.php";
     public static String CLIENTS="NotificationBirthday/Clients.php";
-    public static String GET_EVENT="NotificationBirthday/Events.php";
+    public static String GET_EVENT="NotificationBirthday/events.php";
     public static String _CLIENT="NotificationBirthday/testClient.php";
+    public static String _IMAGE="image/";
     public static String EVENT_CLIENT="NotificationBirthday/pushEventClient.php";
     public static String LOG_IN =HOST+IN;
     public static String SIGN_UP=HOST+UP;
@@ -23,5 +24,7 @@ public class Config {
     public static String GET_CLIENTS=HOST+CLIENTS;
     public static String TEST_CLIENT=HOST+_CLIENT;
     public static String PUSH_EVENT_CLIENT=HOST+EVENT_CLIENT;
+    public static String IMAGE=HOST+_IMAGE;
+
 
 }

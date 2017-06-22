@@ -1,6 +1,7 @@
 package com.example.administrator.surprisegiftserver.model;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.administrator.surprisegiftserver.config.Config;
 import com.example.administrator.surprisegiftserver.support.ConnectServer;
@@ -47,6 +48,7 @@ public class PushEvent implements ConnectServer.ConnectComplete {
             map.put("idClient", String.valueOf(mEvent.getIdClient()));
         }
         mConnectServer.setPara(map);
+//        Log.v("TRUOC KHI PUSH",mEvent.isClient()+" "+mEvent.isNotification());
     }
 
     public void connect() {
@@ -61,5 +63,9 @@ public class PushEvent implements ConnectServer.ConnectComplete {
 
     public void setOnComplete(ConnectServer.ConnectComplete complete) {
         mConnectComplete = complete;
+    }
+    public Context getContext()
+    {
+        return mContext;
     }
 }

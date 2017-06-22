@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.surprisegiftserver.R;
 import com.example.administrator.surprisegiftserver.config.Config;
@@ -92,6 +93,7 @@ public class SignUpActivity extends AppCompatActivity
     @Override
     public void response(String response) {
         progressBar.setVisibility(View.INVISIBLE);
+        Log.v("HH",response);
         if (response.contains("sUserName")) {
             RESULT_CODE = 0;
             status.setText(getResources().getString(R.string.sign_up_success));

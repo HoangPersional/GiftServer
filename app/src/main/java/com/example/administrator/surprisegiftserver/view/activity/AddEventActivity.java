@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.example.administrator.surprisegiftserver.R;
 import com.example.administrator.surprisegiftserver.model.Client;
 import com.example.administrator.surprisegiftserver.model.Event;
+import com.example.administrator.surprisegiftserver.model.EventDbManager;
 import com.example.administrator.surprisegiftserver.model.EventMessage;
 import com.example.administrator.surprisegiftserver.model.LoadClients;
 import com.example.administrator.surprisegiftserver.model.PushEvent;
@@ -46,10 +47,8 @@ public class AddEventActivity extends AppCompatActivity
     public static int RESULT_CODE = 0;
     private EditText eventName, description, message, image, music, video, date, month, year, hour, minute;
     private RadioGroup isTimeType, isClient;
-    private TextView clientName;
     private SwitchCompat notification;
     private Button createEvent;
-    private ImageView chooseClient;
     private AddEventPresenter addEventPresenter;
     private PushEvent pushEvent;
     private LinearLayout messageBlock;
@@ -59,7 +58,6 @@ public class AddEventActivity extends AppCompatActivity
     private ArrayAdapter<String> stringArrayAdapter;
     private ArrayList<Client> clients;
     private ScrollView scrollView;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,7 +129,6 @@ public class AddEventActivity extends AppCompatActivity
 
     @Override
     public void onGetClientComplete(ArrayList<Client> clients) {
-        Log.v("HH", clients.size() + "");
         String[] ar = new String[clients.size()];
         this.clients = clients;
         for (int i = 0; i < clients.size(); ++i) {
@@ -185,7 +182,7 @@ public class AddEventActivity extends AppCompatActivity
         int date = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH) + 1;
         int year = calendar.get(Calendar.YEAR);
-        int hour = calendar.get(Calendar.HOUR);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
         this.date.setText(String.valueOf(date));
         this.month.setText(String.valueOf(month));

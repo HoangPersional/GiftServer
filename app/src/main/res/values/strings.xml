@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Surprise Gift Server</string>
+    <string name="app_name">Gift Server</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,7 +10,7 @@
     <string name="fail">fail</string>
     <string name="more_option">More options</string>
     <string name="forgot_password">Forgot password</string>
-    <string name="create_account">Create account</string>
+    <string name="create_account">Create an account</string>
     <string name="user_name">user name</string>
     <string name="pass_word">pass word</string>
     <string name="confirm_pass_word">confirm pass word</string>
@@ -19,14 +19,14 @@
     <string name="sign_up_success">Sign up success</string>
     <string name="sign_up_fail">Sign up fail</string>
     <string name="second">second</string>
-    <string name="go_page">You will go sign in page on</string>
+    <string name="go_page">You will return to the Login page for</string>
     <string name="seconds">seconds</string>
     <string name="wrong_pass">Wrong pass word</string>
     <string name="no_user">No user name is</string>
     <string name="sign_in_success">Sign in success</string>
     <string name="remember">Remember</string>
     <string name="event">Your events</string>
-    <string name="client">Clients?</string>
+    <string name="client">Remote client</string>
     <string name="exit">Exit</string>
     <string name="update">Update</string>
     <string name="add">Add event</string>
@@ -35,18 +35,18 @@
     <string name="year">Year</string>
     <string name="hour">Hour</string>
     <string name="munite">Minute</string>
-    <string name="repeat">Repeat?</string>
+    <string name="repeat">Repeat</string>
     <string name="no_clients">No clients</string>
     <string name="message">Message</string>
-    <string name="image">Image</string>
-    <string name="music">Music</string>
+    <string name="image">Image link</string>
+    <string name="music">Music link</string>
     <string name="attach_music">Music:</string>
-    <string name="video">Video</string>
+    <string name="video">Video link</string>
     <string name="notification">Notification</string>
     <string name="notification_before">Notificaion before</string>
     <string name="create_event">Create event</string>
-    <string name="time">Time?</string>
-    <string name="description">Description?</string>
+    <string name="time">Time</string>
+    <string name="description">Description</string>
     <string name="event_name">Event name</string>
     <string name="choose_client">Choose client</string>
     <string name="yes">Yes</string>
@@ -67,15 +67,24 @@
     <string name="attach_video">Video:</string>
     <string name="note">Note:</string>
     <string name="test_client">Test connect</string>
-    <string name="no_client">No client</string>
+    <string name="no_client">No</string>
     <string name="name_is_empty">Name is empty</string>
     <string name="connect_success">Client is online</string>
     <string name="connect_fail">Client is offline</string>
-    <string name="add_client_before_check" >No client for this event</string>
+    <string name="add_client_before_check">No client for this event</string>
+    <string name="sign_out">Sign out</string>
+    <string name="client_manager">Remote Management</string>
+    <string name="log_out">Log out</string>
+    <string name="client_name_size">30sp</string>
+    <string name="take_image">Take image</string>
+    <string name="location">Location</string>
+    <string name="id">Id:</string>
     <array name="country_arrays">
         <item>Việt nam</item>
         <item>Thái Lan</item>
         <item>Lào</item>
         <item>Campuchia</item>
     </array>
+    <string name="title_activity_maps">Map</string>
+    <string name="log_in">Log in</string>
 </resources>

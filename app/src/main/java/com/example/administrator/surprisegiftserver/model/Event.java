@@ -32,6 +32,8 @@ public class Event   implements Parcelable  {
     private int minute;
     @SerializedName("bRepeat")
     private boolean isRepeat;
+    @SerializedName("isClient")
+    private boolean isClient;
     @SerializedName("iType")
     private int iType;
     @SerializedName("iStatus")
@@ -40,9 +42,6 @@ public class Event   implements Parcelable  {
     private String dCreate;
     @SerializedName("sDescription")
     private String description;
-
-    private boolean isClient;
-
     @SerializedName("iNotificationMe")
     private boolean isNotification;
     @SerializedName("sText")
@@ -296,7 +295,8 @@ public class Event   implements Parcelable  {
     public String toString()
     {
         return id+" "+name+" "+idUser+" "+idClient+" "+date+" "+month+" "+year+" "+hour+" "+minute+" "
-                +isRepeat+" "+ iType+" "+iStatus+" "+dCreate+" "+isClient+" "+isNotification
-                +" "+message+" "+image+" "+hour+" "+minute;
+                +isRepeat+" "+ iType+" "+iStatus+" "+dCreate+" "+isClient
+                +" "+isNotification+ " "+isRepeat;
+//                +" "+message+" "+image+" "+hour+" "+minute;
     }
 }

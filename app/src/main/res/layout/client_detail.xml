@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Id:21324324"
+        android:textColor="@color/black_dark"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_name_client"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_id"
+        android:gravity="center"
+        android:text="Demo thôi"
+        android:textColor="@color/black_dark"
+        android:textSize="@dimen/client_name_size_big" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_test_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/test_client" />
+
+        <Button
+            android:id="@+id/bt_test_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background_yellow"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/location" />
+
+        <Button
+            android:id="@+id/bt_test_take_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/button_background_red"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/take_image" />
+    </LinearLayout>
+</RelativeLayout>

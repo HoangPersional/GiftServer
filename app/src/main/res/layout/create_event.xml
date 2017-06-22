@@ -274,7 +274,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
-                 android:text="@string/client"
+                 android:text="@string/yes"
                  android:textColor="@color/black_paste" />
 
              <RadioButton
@@ -283,7 +283,7 @@
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
                  android:checked="true"
-                 android:text="@string/no_clients"
+                 android:text="@string/no"
                  android:textColor="@color/black_paste" />
          </RadioGroup>
          <include android:layout_width="match_parent"

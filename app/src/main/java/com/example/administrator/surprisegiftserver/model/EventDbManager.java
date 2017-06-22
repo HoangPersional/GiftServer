@@ -24,7 +24,7 @@ public class EventDbManager {
     private ManagerEventHelper managerEventHelper;
     private static SQLiteDatabase mSqLiteDatabase;
     private static int VERSION = 1;
-    private static Context mContext;
+    public static Context mContext;
     private static String DATA_BASE_NAME = Config.DATA_BASE_NAME;
     private static String EVENT_TABLE_NAME = "event_table";
     private static String DROP_TABLE = "drop table if exists" + EVENT_TABLE_NAME;
@@ -109,8 +109,8 @@ public class EventDbManager {
         contentValues.put(Column.STATUS, e.getiStatus());
         contentValues.put(Column.D_CREATE, e.getdCreate());
         contentValues.put(Column.DESCRIPTION, e.getDescription());
-        contentValues.put(Column.IS_CLIENT, e.isClient());
-        contentValues.put(Column.IS_NOTIFICATION, e.isNotification());
+        contentValues.put(Column.IS_CLIENT, e.isClient()==true?1:0);
+        contentValues.put(Column.IS_NOTIFICATION, e.isNotification()==true?1:0);
         contentValues.put(Column.NOTIFICATION_BEFORE, e.getiNotificationBeforeMinute());
         contentValues.put(Column.MESSAGE, e.getMessage());
         contentValues.put(Column.IMAGE, e.getImage());
@@ -118,7 +118,7 @@ public class EventDbManager {
         contentValues.put(Column.VIDEO, e.getVideo());
         if(mSqLiteDatabase.insert(EVENT_TABLE_NAME, null, contentValues)!=-1)
         {
-            Log.v("HH_INSERT",e.toString());
+//            Log.v("INSERT",""+e.getId());
         }
     }
 
@@ -144,6 +144,10 @@ public class EventDbManager {
             Event e = CursorToEvent(cursor);
             events.add(e);
             cursor.moveToNext();
+        }
+        for (Event e:events
+             ) {
+//            Log.v("INSERT1",""+e.getId());
         }
         return events;
     }

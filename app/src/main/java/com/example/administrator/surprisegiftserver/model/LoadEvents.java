@@ -32,6 +32,7 @@ public class LoadEvents implements ConnectServer.ConnectComplete {
 
     @Override
     public void response(String response) {
+//        Log.v("HH","GET from sv: "+response);
         connectComplete.response(response);
     }
     public void connect()

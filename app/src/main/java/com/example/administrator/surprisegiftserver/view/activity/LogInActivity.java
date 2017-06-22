@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.example.administrator.surprisegiftserver.R;
 import com.example.administrator.surprisegiftserver.config.Config;
 import com.example.administrator.surprisegiftserver.model.Circle;
 import com.example.administrator.surprisegiftserver.model.User;
+import com.example.administrator.surprisegiftserver.service.NotificationService;
 import com.example.administrator.surprisegiftserver.support.ConnectServer;
 import com.example.administrator.surprisegiftserver.support.MyMath;
 import com.google.gson.Gson;
@@ -46,6 +48,8 @@ public class LogInActivity extends AppCompatActivity
     private CheckBox remember;
     private User user;
     private Gson gson;
+    private boolean is_login = false;
+    Handler handler;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +73,10 @@ public class LogInActivity extends AppCompatActivity
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.bt_sign_in) {
-            login();
+            {
+                handler.removeCallbacks(loginRunable);
+                login();
+            }
         } else if (v.getId() == R.id.tv_more_option) {
             setMenu(v);
         }
@@ -78,25 +85,26 @@ public class LogInActivity extends AppCompatActivity
     @Override
     public void response(String response) {
         progressBar.setVisibility(View.INVISIBLE);
-
         if (response.contains("sUserName")) {
             user = gson.fromJson(response, User.class);
             storeData();
-            finish();
             Intent intent = new Intent(this, MainActivity.class);
             Bundle bundle = new Bundle();
             bundle.putParcelable("user", user);
             intent.putExtra("data", bundle);
             startActivity(intent);
+            finish();
         } else if (response.equals("false")) {
             status.setText(getResources().getString(R.string.wrong_pass));
 
         } else if (response.equals("fail")) {
             status.setText(getResources().getString(R.string.no_user) + " " + user.getUserName());
         }
+        is_login = false;
     }
 
     protected void setMenu(View v) {
+        handler.removeCallbacks(loginRunable);
         PopupMenu popupMenu = new PopupMenu(this, v);
         MenuInflater menuInflater = popupMenu.getMenuInflater();
         menuInflater.inflate(R.menu.more_option, popupMenu.getMenu());
@@ -125,33 +133,28 @@ public class LogInActivity extends AppCompatActivity
             user = (User) data.getBundleExtra("data").getParcelable("user");
             userName.setText(user.getUserName());
             passWord.setText(user.getPassWord());
-            CountDownTimer countDownTimer = new CountDownTimer(2000, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-
-                }
-
-                @Override
-                public void onFinish() {
-                    login();
-                }
-            }.start();
-
+            handler.postDelayed(loginRunable, 2000);
         }
     }
 
     public void login() {
-        status.setText("");
-        user.setUserName(userName.getText().toString());
-        user.setPassWord(passWord.getText().toString());
-        if (!user.getUserName().isEmpty() && !user.getPassWord().isEmpty()) {
-            progressBar.setVisibility(View.VISIBLE);
-            connectServer.setUrl(Config.LOG_IN);
-            HashMap<String, String> map = new HashMap<>();
-            map.put("username", user.getUserName());
-            map.put("password", user.getPassWord());
-            connectServer.setPara(map);
-            connectServer.connect();
+        if (is_login == false) {
+            is_login = true;
+            signIn.setEnabled(false);
+            status.setText("");
+            user.setUserName(userName.getText().toString());
+            user.setPassWord(passWord.getText().toString());
+            if (!user.getUserName().isEmpty() && !user.getPassWord().isEmpty()) {
+                progressBar.setVisibility(View.VISIBLE);
+                connectServer.setUrl(Config.LOG_IN);
+                HashMap<String, String> map = new HashMap<>();
+                map.put("username", user.getUserName());
+                map.put("password", user.getPassWord());
+                map.put("token", getToken());
+                map.put("from", "server");
+                connectServer.setPara(map);
+                connectServer.connect();
+            }
         }
     }
 
@@ -168,6 +171,9 @@ public class LogInActivity extends AppCompatActivity
     }
 
     private void init() {
+        handler = new Handler();
+        Intent intent = getIntent();
+        boolean b = intent.getBooleanExtra("MAIN", false);
         SharedPreferences sharedPreferences = getSharedPreferences(Config.PREF, 0);
         user.setUserName(sharedPreferences.getString("userName", ""));
         user.setPassWord(sharedPreferences.getString("passWord", ""));
@@ -175,17 +181,34 @@ public class LogInActivity extends AppCompatActivity
         if (remember.isChecked()) {
             userName.setText(user.getUserName());
             passWord.setText(user.getPassWord());
+            if (!b) {
+                handler.postDelayed(loginRunable, 2000);
+            } else
+                login();
         }
-//        Circle a=new Circle();
-//        a.setX(5);
-//        a.setY(4);
-//        a.setR(10);
-//        Circle b=new Circle();
-//        double[] y=MyMath.ptb2(1,-2*a.getY(),a.getY()*a.getY()-a.getR()*a.getR());
-//        b.setX(a.getX());
-//        b.setY(y[0]);
-//        double r=a.getR()*Math.sqrt(2*(1-Math.cos(Math.toRadians(72))));
-//        b.setR(r);
-//        Log.v("HH",a.toString()+"________________"+b.toString());
+
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = new Intent(getApplicationContext(), NotificationService.class);
+        startService(intent);
+
+        Intent stopNotificaion = new Intent("STOP_NOTIFICATION");
+        sendBroadcast(stopNotificaion);
+    }
+
+    public String getToken() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Config.PREF, 0);
+        return sharedPreferences.getString("token", null);
+    }
+
+    Runnable loginRunable = new Runnable() {
+        @Override
+        public void run() {
+            login();
+        }
+    };
 }

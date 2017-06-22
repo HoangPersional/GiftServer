@@ -19,4 +19,8 @@
     <color name="back_ground_block">#ededed</color>
     <color name="white">#ffffff</color>
     <color name="popupSpinnerColor">#51de71</color>
+    <color name="button_background_red">#d63d3f</color>
+    <color name="button_background_red_press">#ac3133</color>
+    <color name="button_background_yellow">#e7ce2b</color>
+    <color name="button_background_yellow_presss">#c1ac25</color>
 </resources>

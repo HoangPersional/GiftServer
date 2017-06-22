@@ -27,6 +27,8 @@ import com.example.administrator.surprisegiftserver.support.CustomView;
 import com.example.administrator.surprisegiftserver.view.EventDetailView;
 import com.google.gson.Gson;
 
+import java.util.HashMap;
+
 /**
  * Created by Administrator on 27/5/2017.
  */
@@ -126,7 +128,6 @@ public class EventDetailActivity extends AppCompatActivity implements EventDetai
 
     @Override
     public void onTestComplete(String response) {
-        Log.v("HHS",response);
         Gson gson=new Gson();
 //        FirebaseResult firebaseResult=gson.fromJson(response,FirebaseResult.class);
 //        Log.v("CONNECT", String.valueOf(firebaseResult.getSuccess()));
@@ -141,7 +142,9 @@ public class EventDetailActivity extends AppCompatActivity implements EventDetai
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.bt_test_connect_to_client)
+        {
             onTest();
+        }
     }
 
     BroadcastReceiver CheckClientOnline =new BroadcastReceiver() {
@@ -155,11 +158,24 @@ public class EventDetailActivity extends AppCompatActivity implements EventDetai
     protected void onResume() {
         super.onResume();
         registerReceiver(CheckClientOnline,new IntentFilter("online"));
+        registerReceiver(getImage,new IntentFilter("image"));
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         unregisterReceiver(CheckClientOnline);
+        unregisterReceiver(getImage);
     }
+    BroadcastReceiver getImage =new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            HashMap<String,String> hashMap= (HashMap<String, String>) intent.getSerializableExtra("data");
+            Log.v("IMAGE",hashMap.toString());
+            Intent i=new Intent(EventDetailActivity.this,ImageActicity.class);
+            i.putExtra("data",hashMap);
+            startActivity(i);
+        }
+    };
 }

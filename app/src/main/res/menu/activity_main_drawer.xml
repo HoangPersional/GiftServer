@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item android:title="@string/event" android:id="@+id/it_event"/>
-        <item android:id="@+id/it_client" android:title="@string/client"/>
+        <item android:title="@string/event" android:id="@+id/it_event" android:icon="@mipmap/gift"/>
+        <item android:id="@+id/it_client_manager" android:title="@string/client_manager"/>
     </group>
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/it_setting" android:title="@string/action_settings"/>
-        <item android:id="@+id/it_exit" android:title="@string/exit"/>
+        <item android:id="@+id/it_setting" android:title="@string/action_settings" android:icon="@mipmap/setting"/>
+        <item android:id="@+id/it_log_out" android:title="@string/log_out"/>
     </group>
 
 </menu>

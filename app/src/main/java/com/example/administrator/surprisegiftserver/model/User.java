@@ -13,19 +13,22 @@ import java.io.Serializable;
 
 public class User implements Serializable,Parcelable {
     @SerializedName("id")
-    private int id;
+    public int id;
     @SerializedName("sUserName")
-    private String userName;
+    public String userName;
     @SerializedName("sPassWord")
-    private String passWord;
+    public String passWord;
     @SerializedName("sEmail")
-    private String email;
+    public String email;
+    @SerializedName("token")
+    public String token;
     public User(){}
     protected User(Parcel in) {
         id = in.readInt();
         userName = in.readString();
         passWord = in.readString();
         email = in.readString();
+        token=in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -83,5 +86,14 @@ public class User implements Serializable,Parcelable {
         dest.writeString(userName);
         dest.writeString(passWord);
         dest.writeString(email);
+        dest.writeString(token);
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

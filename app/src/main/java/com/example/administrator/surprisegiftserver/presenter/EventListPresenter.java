@@ -1,5 +1,6 @@
 package com.example.administrator.surprisegiftserver.presenter;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.example.administrator.surprisegiftserver.model.Event;
@@ -19,11 +20,9 @@ public class EventListPresenter implements ConnectServer.ConnectComplete {
     private LoadList view;
     private LoadEvents loadEvents;
     private ArrayList<Event> events;
-    private EventDbManager eventDbManager;
     public EventListPresenter(LoadList view, LoadEvents events) {
         this.view = view;
         this.loadEvents = events;
-        eventDbManager=EventDbManager.getInstance(events.getContext());
     }
     public void connect()
     {
@@ -34,7 +33,5 @@ public class EventListPresenter implements ConnectServer.ConnectComplete {
     public void response(String response) {
         events= ConvertStringToArrayList.convertStringToArr(response,Event.class);
         view.onLoadComplete(events);
-        eventDbManager.clear();
-        eventDbManager.insertEvents(events);
     }
 }
